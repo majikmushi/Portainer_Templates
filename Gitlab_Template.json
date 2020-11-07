@@ -15,7 +15,7 @@
 			"env": [{
 				"name": "GITLAB_OMNIBUS_CONFIG",
 				"label": "Env var setting the insternal ssh port",
-				"default": "gitlab_rails['gitlab_shell_ssh_port'] = 8822",
+				"default": {"gitlab_rails['gitlab_shell_ssh_port'] = 8822"},
 				}
 			],
 			"ports": [
