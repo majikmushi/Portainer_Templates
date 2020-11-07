@@ -1,0 +1,60 @@
+{
+	"version": "2",
+	"templates": [{
+			"type": 1,
+			"title": "Gitlab CE",
+			"description": "Open-source end-to-end software development platform",
+			"note": "Default username is <b>root</b>. Check the <a href=\"https://docs.gitlab.com/omnibus/docker/README.html#after-starting-a-container\" target=\"_blank\">Gitlab documentation</a> to get started.",
+			"categories": [
+				"development",
+				"project-management"
+			],
+			"platform": "linux",
+			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/gitlab_ce.png",
+			"image": "gitlab/gitlab-ce:latest",
+			"env": [{
+				"name": "GITLAB_OMNIBUS_CONFIG",
+				"label": "Env var setting the insternal ssh port",
+				"default": "gitlab_rails['gitlab_shell_ssh_port'] = 8822",
+				}
+			],
+			"ports": [
+				"8080:80/tcp",
+				"8443:443/tcp",
+				"8022:22/tcp"
+			],
+			"volumes": [{
+					"container": "/etc/gitlab"
+				},
+				{
+					"container": "/var/log/gitlab"
+				},
+				{
+					"container": "/var/opt/gitlab"
+				}
+			]
+		  },{
+			"type": 1,
+			"title": "Gitlab-Runner",
+			"description": "Open-source end-to-end software development platform",
+			"note": "Check the <a href=\"https://docs.gitlab.com/omnibus/docker/README.html#after-starting-a-container\" target=\"_blank\">Gitlab documentation</a> to get started.",
+			"categories": [
+				"development",
+				"project-management"
+			],
+			"platform": "linux",
+			"logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/gitlab_ce.png",
+			"image": "gitlab/gitlab-runner:alpine",
+			"volumes": [{
+					"container": "/etc/gitlab"
+				},
+				{
+					"container": "/var/log/gitlab"
+				},
+				{
+					"container": "/var/opt/gitlab"
+				}
+			]
+		  }
+	]
+}
